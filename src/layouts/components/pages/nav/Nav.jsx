@@ -13,7 +13,7 @@ function Nav() {
       
      <Link to={"/empleados"}><button>Empleados</button></Link> 
      <Link to={"/liquidacion"}><button>Liquidacion</button></Link> 
-      <button className="button_cerrar_sesion">Cerrar sesión</button>
+     <Link to={"/"}><button className="button_cerrar_sesion">Cerrar sesión</button></Link>
     </nav>
   );
 }
