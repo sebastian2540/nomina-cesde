@@ -45,11 +45,11 @@ button {
   font-size: 15px;
 }
 
-.button_cerrar_sesion {
+/* .button_cerrar_sesion {
   width: 115px;
   margin-top: 300px;
   background-color: #fd2b2b;
-}
+} */
 
 .button_cerrar_sesion:hover {
     background-color: #fd2b2bad;

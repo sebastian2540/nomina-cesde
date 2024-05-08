@@ -14,19 +14,19 @@ const Login = () => {
   }
   getUsuarios();
 
-  // const [getUsuario, setUsuario] = useState("admin");
-  // const [getContrasena, setContrasena] = useState("");
-  // let redireccion = useNavigate();
+  const [getUsuario, setUsuario] = useState("admin");
+  const [getContrasena, setContrasena] = useState("");
+  let redireccion = useNavigate();
 
-  // if (getUsuario === "adminomina") {
-  //   if (getContrasena === "123456"){
-  //     setTimeout(() => {
-  //       redireccion("/home")
-  //     },2000);
-  //   }
-  // } else {
-  //   console.log("Credenciales incorrectas");
-  // }
+  if (getUsuario === "adminomina") {
+    if (getContrasena === "123456"){
+      setTimeout(() => {
+        redireccion("/home")
+      },2000);
+    }
+  } else {
+    console.log("Credenciales incorrectas");
+  }
 
   return (
     <section id="login" className="form-login">
@@ -36,18 +36,18 @@ const Login = () => {
         type="text"
         className="controls"
         placeholder="Usuario"
-        // onChange={(e) => {
-        //   setUsuario(e.target.value);
-        // }}
+        onChange={(e) => {
+          setUsuario(e.target.value);
+        }}
       />
       <input
         type="password"
         className="controls"
         placeholder="Contraseña"
-        // maxlength="10"
-        // onChange={(e) => {
-        //   setContrasena(e.target.value);
-        // }}
+        
+        onChange={(e) => {
+          setContrasena(e.target.value);
+        }}
       />
       <section>
         <input type="button" className="buttons" value="Ingresar" />

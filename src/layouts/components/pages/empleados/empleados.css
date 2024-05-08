@@ -1,0 +1,79 @@
+.button-activar {
+    margin-right: 10px;
+    border-radius: 16px;
+    width: 110px;
+    border: solid 1px;
+    background-color: white;
+  }
+  
+  .button-crear {
+    margin-right: 10px;
+    border-radius: 16px;
+    width: 110px;
+    border: solid 1px;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    
+  }
+  
+  .button-editar {
+    margin-right: 10px;
+    border-radius: 16px;
+    width: 110px;
+    border: solid 1px;
+    background-color: white;
+  }
+  .button-eliminar {
+    margin-right: 10px;
+    border-radius: 16px;
+    width: 110px;
+    border: solid 1px;
+    background-color: white;
+  }
+  .container-buttons {
+    right: 67px;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    display: flex;
+    justify-content: end;
+    margin-left: -250px;
+  }
+  
+  .principal {
+    display: flex;
+    width: 70%;
+    height: 450px;
+    background-color: #f0f2f5;
+    flex-direction: row;
+    margin-left: 350px;
+    
+    border-radius: 16px;
+    position: absolute;
+    top: 125px;
+align-items: center;  }
+  
+  .button-principal {
+    position: absolute;
+    right: 67px;
+   bottom: 0px;
+   display: flex;
+   justify-content: space-evenly;
+  }
+  
+  .button-uno {
+    margin-right: 10px;
+    border-radius: 16px;
+    border: solid 1px;
+    background-color: white;
+    
+  }
+  
+  .button-dos {
+    border-radius: 16px;
+    border: solid 1px;
+  
+    background-color: white;
+  }
+ 
