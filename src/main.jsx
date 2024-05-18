@@ -10,6 +10,7 @@ import Home from "./layouts/components/home/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Liquidacion from "./layouts/components/pages/liquidacion/Liquidacion.jsx";
 import Empleados from "./layouts/components/pages/empleados/Empleados.jsx";
+import Area from "./layouts/components/pages/area/Area.jsx";
 
 let router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ let router = createBrowserRouter([
   {
     path: "/liquidacion",
     element: <Liquidacion/>,
+  },
+  {
+    path: "/area",
+    element: <Area/>,
   },
   {
     path: "/empleados",

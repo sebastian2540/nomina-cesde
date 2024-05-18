@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../nav/Nav";
-import "./empleados.css";
+import "./area.css";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -8,7 +8,7 @@ import { LuUserCheck2 } from "react-icons/lu";
 import { TfiSave } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
 
-const Empleados = () => {
+const Area = () => {
   return (
     <>
       <Nav />
@@ -30,7 +30,7 @@ const Empleados = () => {
 
         <div>
           <div className="principal">
-            <strong>Empleados</strong>
+            <strong>Área</strong>
           </div>
 
           <div className="button-principal">
@@ -47,4 +47,4 @@ const Empleados = () => {
   );
 };
 
-export default Empleados;
+export default Area;

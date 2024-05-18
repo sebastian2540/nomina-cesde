@@ -1,0 +1,126 @@
+.button-liquidacion_tiempo_completo {
+  margin-right: 10px;
+  border-radius: 16px;
+  width: 300px;
+  border: none;
+  background-color: #68b26b;
+  justify-content: space-evenly;
+}
+
+.button-liquidacion_tiempo_completo:hover {
+  background-color: #68b26ace;
+}
+
+.button-liquidacion_tiempo_completo:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
+.button-liquidacion_por_horas {
+  margin-right: 10px;
+  border-radius: 16px;
+  width: 300px;
+  border: none;
+  background-color: #008cff;
+}
+
+.button-liquidacion_por_horas:hover {
+  background-color: #008cffce;
+}
+
+.button-liquidacion_por_horas:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
+.container-buttons {
+  right: 67px;
+  position: absolute;
+  top: 56px;
+  left: 0;
+  display: flex;
+  justify-content: end;
+  margin-left: -250px;
+}
+
+.principal {
+  display: flex;
+  width: 75%;
+  height: 550px;
+  background-color: rgba(148, 148, 148, 0.411);
+  flex-direction: row;
+  margin-left: 350px;
+  border-radius: 10px;
+  position: absolute;
+  top: 130px;
+  align-items: center;
+}
+
+.button-principal {
+  position: absolute;
+  right: 67px;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button-uno {
+  margin-right: 10px;
+  border-radius: 16px;
+  background-color: #f44336;
+}
+
+.button-uno:hover {
+  background-color: #f44336ce;
+}
+
+.button-uno:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
+.button-dos {
+  border-radius: 16px;
+  background-color: #68b26b;
+}
+
+.button-dos:hover {
+  background-color: #68b26ace;
+}
+
+.button-dos:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
+.button-liquidacion_empleado {
+  margin-right: 10px;
+  border-radius: 16px;
+  width: 300px;
+  background-color: #FF9800;
+}
+
+.button-liquidacion_empleado:hover {
+  background-color: #ff9900ce;
+}
+
+.button-liquidacion_empleado:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
+.button-liquidacion_empleador {
+  margin-right: 10px;
+  border-radius: 16px;
+  width: 300px;
+  background-color: #FF5722;
+}
+
+.button-liquidacion_empleador:hover {
+  background-color: #ff5622ce;
+}
+
+.button-liquidacion_empleador:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}

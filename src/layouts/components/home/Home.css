@@ -45,6 +45,11 @@ button {
   font-size: 15px;
 }
 
+button:active {
+  box-shadow: 0 5px black;
+  transform: translateY(1px);
+}
+
 /* .button_cerrar_sesion {
   width: 115px;
   margin-top: 300px;
@@ -61,4 +66,11 @@ button:hover {
 
 .label_text {
   margin-top: 5px;
+}
+
+.nomina_home {
+  margin-left: 600px;
+  position: absolute;
+  top: 200px;
+  align-items: center;
 }

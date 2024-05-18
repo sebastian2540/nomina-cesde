@@ -4,7 +4,14 @@ import Nav from "../pages/nav/Nav";
 
 function Home() {
   return (
-   <Nav/>
+    <>
+      <Nav />
+      <div>
+        <div className="nomina_home">
+          <img src="src/layouts/assets/nomina_home.png" alt="" srcset="" />
+        </div>
+      </div>
+    </>
   );
 }
 

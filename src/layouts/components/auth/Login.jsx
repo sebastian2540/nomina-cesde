@@ -1,32 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 // import Home from "../pages/home/Home";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { initFirestore } from "../../../database/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs } from "firebase/firestore";
 
 const Login = () => {
+  const [usuarios, setUsuarios] = useState([]);
+  const [getUsuario, setUsuario] = useState("");
+  const [getContrasena, setContrasena] = useState("");
+
+  //Conexión a la base de datos desde Firestore
   async function getUsuarios() {
     let collectionUsuarios = collection(initFirestore, "tbl_empleados");
     let datosUsuarios = await getDocs(collectionUsuarios);
     console.log(datosUsuarios);
+    setUsuarios(datosUsuarios.docs.map((doc) => ({ ...doc.data() })));
+    console.log(datosUsuarios.docs.map((doc) => ({ ...doc.data() })));
   }
-  getUsuarios();
+  useEffect(() => {
+    getUsuarios();
+  }, []);
 
-  const [getUsuario, setUsuario] = useState("admin");
-  const [getContrasena, setContrasena] = useState("");
+  const buscarUsuario = () => {
+    let estado = usuarios.some(
+      (usuario) =>
+        usuario.usuario === getUsuario && usuario.contrasena === getContrasena
+    );
+    return estado;
+  };
+
   let redireccion = useNavigate();
 
-  if (getUsuario === "adminomina") {
-    if (getContrasena === "123456"){
+  const iniciarSesion = () => {
+    if (buscarUsuario()) {
       setTimeout(() => {
-        redireccion("/home")
-      },2000);
+        redireccion("/home");
+      }, 2000);
+    } else {
+      console.log("Credenciales incorrectas");
     }
-  } else {
-    console.log("Credenciales incorrectas");
-  }
+  };
 
   return (
     <section id="login" className="form-login">
@@ -44,13 +59,12 @@ const Login = () => {
         type="password"
         className="controls"
         placeholder="Contraseña"
-        
         onChange={(e) => {
           setContrasena(e.target.value);
         }}
       />
       <section>
-        <input type="button" className="buttons" value="Ingresar" />
+        <input onClick={iniciarSesion} type="button" className="buttons" value="Ingresar" />
 
         <p>
           <a href="#">¿Olvidastes tu Contraseña?</a>

@@ -4,15 +4,16 @@ import "./nav.css";
 function Nav() {
   return (
     <nav className="menu">
-      <img className="usuario" src="src/layouts/assets/avatar_boy_man_icon.png"></img>
+      <Link to={"/home"} ><img className="usuario" src="src/layouts/assets/avatar_boy_man_icon.png"></img></Link>
       <section className="informacion-usuario">
-        <label type="text" className="label_text"><strong>Nombre:</strong> Pepito Perez</label>
-        <label type="text" className="label_text"><strong>Cargo:</strong> Administrador de Nómina</label>
-        <label type="text" className="label_text"><strong>Area:</strong> Nómina</label>
+        <label type="text" className="label_text"><strong>Juan Camilo Sanchez Perez</strong></label>
+        <label type="text" className="label_text"><strong>Administrador</strong></label>
+        <label type="text" className="label_text"><strong>Nómina</strong></label>
       </section>
       
-     <Link to={"/empleados"}><button>Empleados</button></Link> 
-     <Link to={"/liquidacion"}><button>Liquidacion</button></Link> 
+     <Link to={"/empleados"}><button>Empleados</button></Link>
+     <Link to={"/area"}><button>Área</button></Link> 
+     <Link to={"/liquidacion"}><button>Liquidación</button></Link> 
      <Link to={"/"}><button className="button_cerrar_sesion">Cerrar sesión</button></Link>
     </nav>
   );
