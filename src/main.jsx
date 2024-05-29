@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Liquidacion from "./layouts/components/pages/liquidacion/Liquidacion.jsx";
 import Empleados from "./layouts/components/pages/empleados/Empleados.jsx";
 import Area from "./layouts/components/pages/area/Area.jsx";
+import { UserProvider } from "./layouts/components/context/UserContext.jsx";
 
 let router = createBrowserRouter([
   {
@@ -23,19 +24,20 @@ let router = createBrowserRouter([
   },
   {
     path: "/liquidacion",
-    element: <Liquidacion/>,
+    element: <Liquidacion />,
   },
   {
     path: "/area",
-    element: <Area/>,
+    element: <Area />,
   },
   {
     path: "/empleados",
-    element: <Empleados/>,
+    element: <Empleados />,
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <UserProvider>
+    <RouterProvider router={router} />
+  </UserProvider>
 );

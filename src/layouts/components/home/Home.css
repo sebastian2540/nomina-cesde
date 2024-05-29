@@ -18,6 +18,7 @@
   height: 60px;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .informacion-usuario label {
   font-size: 15px;
@@ -57,7 +58,7 @@ button:active {
 } */
 
 .button_cerrar_sesion:hover {
-    background-color: #fd2b2bad;
+  background-color: #fd2b2bad;
 }
 
 button:hover {

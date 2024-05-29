@@ -1,20 +1,53 @@
-import { Link, Outlet } from "react-router-dom";
-import "./nav.css";
+import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/UserContext";
 
 function Nav() {
+  const { user } = useUserContext();
+  const role = user
+    ? user.cargo_empleado
+    : localStorage.getItem("cargo_empleado");
+
   return (
     <nav className="menu">
-      <Link to={"/home"} ><img className="usuario" src="src/layouts/assets/avatar_boy_man_icon.png"></img></Link>
+      <Link to={"/home"}>
+        <img
+          className="usuario"
+          src="src/layouts/assets/avatar_boy_man_icon.png"
+        />
+      </Link>
       <section className="informacion-usuario">
-        <label type="text" className="label_text"><strong>Juan Camilo Sanchez Perez</strong></label>
-        <label type="text" className="label_text"><strong>Administrador</strong></label>
-        <label type="text" className="label_text"><strong>Nómina</strong></label>
+        <label className="label_text">
+          <strong>
+            {user
+              ? `${user.nombre_empleado} ${user.apellido_empleado}`
+              : "Usuario"}
+          </strong>
+        </label>
+        <label className="label_text">
+          <strong>
+            {role === "Administrador Nomina Web"
+              ? user.cargo_empleado
+              : "Auxiliar"}
+          </strong>
+        </label>
       </section>
-      
-     <Link to={"/empleados"}><button>Empleados</button></Link>
-     <Link to={"/area"}><button>Área</button></Link> 
-     <Link to={"/liquidacion"}><button>Liquidación</button></Link> 
-     <Link to={"/"}><button className="button_cerrar_sesion">Cerrar sesión</button></Link>
+
+      {role === "Administrador" && (
+        <>
+          <Link to={"/empleados"}>
+            <button>Empleados</button>
+          </Link>
+          <Link to={"/area"}>
+            <button>Área</button>
+          </Link>
+        </>
+      )}
+      <Link to={"/liquidacion"}>
+        <button>Liquidación</button>
+      </Link>
+      <Link to={"/"}>
+        <button className="button_cerrar_sesion">Cerrar sesión</button>
+      </Link>
     </nav>
   );
 }

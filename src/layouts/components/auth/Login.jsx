@@ -1,40 +1,43 @@
 import React, { useEffect } from "react";
 import "./Login.css";
-// import Home from "../pages/home/Home";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { initFirestore } from "../../../database/firebaseConfig";
-import { collection, doc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+import { useUserContext } from "../context/UserContext";
 
 const Login = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [getUsuario, setUsuario] = useState("");
   const [getContrasena, setContrasena] = useState("");
+  const { setUser } = useUserContext();
 
-  //Conexión a la base de datos desde Firestore
   async function getUsuarios() {
     let collectionUsuarios = collection(initFirestore, "tbl_empleados");
     let datosUsuarios = await getDocs(collectionUsuarios);
-    console.log(datosUsuarios);
+
     setUsuarios(datosUsuarios.docs.map((doc) => ({ ...doc.data() })));
-    console.log(datosUsuarios.docs.map((doc) => ({ ...doc.data() })));
   }
+
   useEffect(() => {
     getUsuarios();
   }, []);
 
   const buscarUsuario = () => {
-    let estado = usuarios.some(
+    return usuarios.find(
       (usuario) =>
         usuario.usuario === getUsuario && usuario.contrasena === getContrasena
     );
-    return estado;
   };
 
   let redireccion = useNavigate();
 
   const iniciarSesion = () => {
-    if (buscarUsuario()) {
+    const usuario = buscarUsuario();
+
+    if (usuario) {
+      setUser(usuario);
+      localStorage.setItem("cargo_empleado", usuario.cargo_empleado);
       setTimeout(() => {
         redireccion("/home");
       }, 2000);
@@ -64,10 +67,14 @@ const Login = () => {
         }}
       />
       <section>
-        <input onClick={iniciarSesion} type="button" className="buttons" value="Ingresar" />
-
+        <input
+          onClick={iniciarSesion}
+          type="button"
+          className="buttons"
+          value="Ingresar"
+        />
         <p>
-          <a href="#">¿Olvidastes tu Contraseña?</a>
+          <a href="#">¿Olvidaste tu Contraseña?</a>
         </p>
       </section>
     </section>

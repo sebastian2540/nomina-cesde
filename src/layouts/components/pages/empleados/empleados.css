@@ -3,12 +3,12 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #68B26B;
+  background-color: #68b26b;
   justify-content: space-evenly;
 }
 
 .button-crear:hover {
-  background-color: #68b26ace;  
+  background-color: #68b26ace;
 }
 
 .button-crear:active {
@@ -38,7 +38,7 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #F44336;
+  background-color: #f44336;
 }
 
 .button-eliminar:hover {
@@ -55,11 +55,11 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #FFC107;
+  background-color: #ffc107;
 }
 
 .button-activar:hover {
- background-color: #ffc107ce; 
+  background-color: #ffc107ce;
 }
 
 .button-activar:active {
@@ -79,11 +79,11 @@
 
 .principal {
   display: flex;
-  width: 75%;
-  height: 550px;
+  width: 65%;
+  height: 525px;
   background-color: rgba(148, 148, 148, 0.411);
   flex-direction: row;
-  margin-left: 350px;
+  margin-left: 392px;
   border-radius: 10px;
   position: absolute;
   top: 130px;
@@ -92,8 +92,8 @@
 
 .button-principal {
   position: absolute;
-  right: 67px;
-  bottom: 0px;
+  right: 25px;
+  bottom: -72px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -101,7 +101,7 @@
 .button-uno {
   margin-right: 10px;
   border-radius: 16px;
-  background-color: #F44336;
+  background-color: #f44336;
 }
 
 .button-uno:hover {
@@ -115,7 +115,7 @@
 
 .button-dos {
   border-radius: 16px;
-  background-color: #68B26B;
+  background-color: #68b26b;
 }
 
 .button-dos:hover {
@@ -125,4 +125,88 @@
 .button-dos:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
+}
+
+.description-i {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-n {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-a {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-e {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-c {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-r {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.description-ar {
+  vertical-align: inherit;
+  margin-left: 150px;
+}
+
+.campo-empleado-i {
+  border-radius: 5px;
+  margin-left: 150px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-n {
+  border-radius: 5px;
+  margin-left: 194px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-a {
+  border-radius: 5px;
+  margin-left: 192px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-e {
+  border-radius: 5px;
+  margin-left: 215px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-c {
+  border-radius: 5px;
+  margin-left: 205px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-r {
+  border-radius: 5px;
+  margin-left: 235px;
+  padding: 5px;
+  width: 265px;
+}
+
+.campo-empleado-ar {
+  border-radius: 5px;
+  margin-left: 220px;
+  padding: 5px;
+  width: 265px;
 }
