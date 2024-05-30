@@ -47,15 +47,6 @@ const Liquidacion = () => {
           {formType === "hourly" && (
             <LiquidacionHoras onSubmit={handleHourlySubmit} />
           )}
-
-          <div className="button-principal">
-            <button className="button-uno">
-              <TfiSave size={"20px"} /> Guardar
-            </button>
-            <button className="button-dos">
-              <MdOutlineCancel size={"20px"} /> Cancelar
-            </button>
-          </div>
         </div>
       </section>
     </>

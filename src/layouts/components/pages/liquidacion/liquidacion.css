@@ -3,7 +3,7 @@
   border-radius: 16px;
   width: 300px;
   border: none;
-  background-color: #68b26b;
+  background-color: #9bd3ae;
   justify-content: space-evenly;
 }
 
@@ -21,7 +21,7 @@
   border-radius: 16px;
   width: 300px;
   border: none;
-  background-color: #008cff;
+  background-color: #84b6f4;
 }
 
 .button-liquidacion_por_horas:hover {
@@ -34,7 +34,7 @@
 }
 
 .container-buttons {
-  right: 67px;
+  right: 200px;
   position: absolute;
   top: 56px;
   left: 0;
@@ -47,7 +47,6 @@
   display: flex;
   width: 75%;
   height: 550px;
-  background-color: rgba(148, 148, 148, 0.411);
   flex-direction: row;
   margin-left: 350px;
   border-radius: 10px;
@@ -58,7 +57,7 @@
 
 .button-principal {
   position: absolute;
-  right: 67px;
+
   bottom: 10px;
   display: flex;
   justify-content: space-evenly;
@@ -67,11 +66,11 @@
 .button-uno {
   margin-right: 10px;
   border-radius: 16px;
-  background-color: #f44336;
+  background-color: #9bd3ae;
 }
 
 .button-uno:hover {
-  background-color: #f44336ce;
+  background-color: #68b26ace;
 }
 
 .button-uno:active {
@@ -81,11 +80,11 @@
 
 .button-dos {
   border-radius: 16px;
-  background-color: #68b26b;
+  background-color: #f47e8e;
 }
 
 .button-dos:hover {
-  background-color: #68b26ace;
+  background-color: #f44336ce;
 }
 
 .button-dos:active {
@@ -128,14 +127,15 @@
 .hourly-form {
   margin: 20px;
   padding: 20px;
-  border: 1px solid #008cff;
+  border: 1px solid black;
   border-radius: 25px;
-  background-color: #f9f9f9;
-  width: 500px;
-  height: 480px;
+  background-color: #e5dde6;
+
+  width: 800px;
+  height: 550px;
   position: absolute;
   top: 147px;
-  left: 47%;
+  left: 30%;
   z-index: 1;
 }
 

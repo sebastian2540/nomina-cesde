@@ -1,9 +1,10 @@
 .menu {
-  width: 20%;
+  background-color: #e5dde6;
   height: 100vh;
-  background-color: rgba(148, 148, 148, 0.411);
-  display: flex;
+  width: 250px;
   flex-direction: column;
+  padding-top: 20px;
+  display: flex;
   align-items: center;
 }
 .usuario {
@@ -33,17 +34,23 @@
 } */
 
 button {
-  width: 200px;
+  width: 175px;
   padding: 10px;
   margin: 5px 0;
   margin-top: 20px;
   border: none;
-  border-radius: 4px;
-  background-color: #007bff;
+  border-radius: 26px;
+  background-color: #84b6f4;
   color: black;
   font-weight: 700;
   cursor: pointer;
   font-size: 15px;
+}
+
+.button_cerrar_sesion {
+  width: 190px;
+
+  background-color: #f47e8e;
 }
 
 button:active {

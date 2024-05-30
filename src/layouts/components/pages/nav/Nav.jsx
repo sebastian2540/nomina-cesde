@@ -7,6 +7,8 @@ function Nav() {
     ? user.cargo_empleado
     : localStorage.getItem("cargo_empleado");
 
+  console.log("***role", role);
+  console.log("***user", user);
   return (
     <nav className="menu">
       <Link to={"/home"}>
@@ -25,9 +27,7 @@ function Nav() {
         </label>
         <label className="label_text">
           <strong>
-            {role === "Administrador Nomina Web"
-              ? user.cargo_empleado
-              : "Auxiliar"}
+            {role === "Administrador" ? user?.cargo_empleado : "Auxiliar"}
           </strong>
         </label>
       </section>

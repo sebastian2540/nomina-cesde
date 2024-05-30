@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./liquidacion.css";
+import { TfiSave } from "react-icons/tfi";
+import { MdOutlineCancel } from "react-icons/md";
 
 const HourlyLiquidationForm = ({ onSubmit }) => {
   const { register, handleSubmit } = useForm();
@@ -56,6 +58,14 @@ const HourlyLiquidationForm = ({ onSubmit }) => {
           id="diasLaborados"
           {...register("diasLaborados", { required: true })}
         />
+      </div>
+      <div className="button-principal">
+        <button className="button-uno">
+          <TfiSave size={"20px"} /> Guardar
+        </button>
+        <button className="button-dos">
+          <MdOutlineCancel size={"20px"} /> Cancelar
+        </button>
       </div>
     </form>
   );

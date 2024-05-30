@@ -3,7 +3,7 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #68b26b;
+  background-color: #9bd3ae;
   justify-content: space-evenly;
 }
 
@@ -21,7 +21,7 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #008cff;
+  background-color: #84b6f4;
 }
 
 .button-editar:hover {
@@ -38,7 +38,7 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #f44336;
+  background-color: #f47e8e;
 }
 
 .button-eliminar:hover {
@@ -55,7 +55,7 @@
   border-radius: 16px;
   width: 110px;
   border: none;
-  background-color: #ffc107;
+  background-color: #ffda89;
 }
 
 .button-activar:hover {
@@ -68,7 +68,7 @@
 }
 
 .container-buttons {
-  right: 67px;
+  right: 200px;
   position: absolute;
   top: 56px;
   left: 0;
@@ -81,7 +81,7 @@
   display: flex;
   width: 65%;
   height: 525px;
-  background-color: rgba(148, 148, 148, 0.411);
+
   flex-direction: row;
   margin-left: 392px;
   border-radius: 10px;
@@ -101,11 +101,11 @@
 .button-uno {
   margin-right: 10px;
   border-radius: 16px;
-  background-color: #f44336;
+  background-color: #9bd3ae;
 }
 
 .button-uno:hover {
-  background-color: #f44336ce;
+  background-color: #68b26ace;
 }
 
 .button-uno:active {
@@ -115,11 +115,11 @@
 
 .button-dos {
   border-radius: 16px;
-  background-color: #68b26b;
+  background-color: #f47e8e;
 }
 
 .button-dos:hover {
-  background-color: #68b26ace;
+  background-color: #f44336ce;
 }
 
 .button-dos:active {
