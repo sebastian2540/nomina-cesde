@@ -3,8 +3,7 @@ import Nav from "../nav/Nav";
 
 import "./liquidacion.css";
 import { LuUserCheck2 } from "react-icons/lu";
-import { TfiSave } from "react-icons/tfi";
-import { MdOutlineCancel } from "react-icons/md";
+
 import LiquidacionTiempoCompleto from "./Liquidacion-tiempo-completo";
 import LiquidacionHoras from "./Liquidacion-horas";
 
@@ -39,8 +38,6 @@ const Liquidacion = () => {
         </div>
 
         <div>
-          <div className="principal"></div>
-
           {formType === "fullTime" && (
             <LiquidacionTiempoCompleto onSubmit={handleFullTimeSubmit} />
           )}

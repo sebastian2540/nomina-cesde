@@ -1,14 +1,28 @@
-.button-crear {
+/* Botones de acción */
+.button-crear,
+.button-editar,
+.button-eliminar,
+.button-activar,
+.button-uno,
+.button-dos {
   margin-right: 10px;
   border-radius: 16px;
   width: 110px;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+}
+
+.button-crear {
   background-color: #9bd3ae;
-  justify-content: space-evenly;
 }
 
 .button-crear:hover {
-  background-color: #68b26ace;
+  background-color: #68b26a;
 }
 
 .button-crear:active {
@@ -17,15 +31,11 @@
 }
 
 .button-editar {
-  margin-right: 10px;
-  border-radius: 16px;
-  width: 110px;
-  border: none;
   background-color: #84b6f4;
 }
 
 .button-editar:hover {
-  background-color: #008cffce;
+  background-color: #008cff;
 }
 
 .button-editar:active {
@@ -34,15 +44,11 @@
 }
 
 .button-eliminar {
-  margin-right: 10px;
-  border-radius: 16px;
-  width: 110px;
-  border: none;
   background-color: #f47e8e;
 }
 
 .button-eliminar:hover {
-  background-color: #f44336ce;
+  background-color: #f44336;
 }
 
 .button-eliminar:active {
@@ -51,15 +57,11 @@
 }
 
 .button-activar {
-  margin-right: 10px;
-  border-radius: 16px;
-  width: 110px;
-  border: none;
   background-color: #ffda89;
 }
 
 .button-activar:hover {
-  background-color: #ffc107ce;
+  background-color: #ffc107;
 }
 
 .button-activar:active {
@@ -67,45 +69,12 @@
   transform: translateY(1px);
 }
 
-.container-buttons {
-  right: 200px;
-  position: absolute;
-  top: 56px;
-  left: 0;
-  display: flex;
-  justify-content: end;
-  margin-left: -250px;
-}
-
-.principal {
-  display: flex;
-  width: 65%;
-  height: 525px;
-
-  flex-direction: row;
-  margin-left: 392px;
-  border-radius: 10px;
-  position: absolute;
-  top: 130px;
-  align-items: center;
-}
-
-.button-principal {
-  position: absolute;
-  right: 25px;
-  bottom: -72px;
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .button-uno {
-  margin-right: 10px;
-  border-radius: 16px;
   background-color: #9bd3ae;
 }
 
 .button-uno:hover {
-  background-color: #68b26ace;
+  background-color: #68b26a;
 }
 
 .button-uno:active {
@@ -114,12 +83,11 @@
 }
 
 .button-dos {
-  border-radius: 16px;
   background-color: #f47e8e;
 }
 
 .button-dos:hover {
-  background-color: #f44336ce;
+  background-color: #f44336;
 }
 
 .button-dos:active {
@@ -127,86 +95,71 @@
   transform: translateY(1px);
 }
 
-.description-i {
-  vertical-align: inherit;
-  margin-left: 150px;
+/* Contenedor de botones */
+.container-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
-.description-n {
-  vertical-align: inherit;
-  margin-left: 150px;
+/* Estilo del formulario */
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  margin: 130px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
-.description-a {
-  vertical-align: inherit;
-  margin-left: 150px;
+.modal-body {
+  width: 100%;
 }
 
-.description-e {
-  vertical-align: inherit;
-  margin-left: 150px;
+/* Contenedor del formulario */
+.container {
+  width: 100%;
 }
 
-.description-c {
-  vertical-align: inherit;
-  margin-left: 150px;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.description-r {
-  vertical-align: inherit;
-  margin-left: 150px;
+.col-md-2 {
+  width: 45%;
+  margin-bottom: 20px;
 }
 
-.description-ar {
-  vertical-align: inherit;
-  margin-left: 150px;
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.campo-empleado-i {
+input[type="text"],
+input[type="email"] {
   border-radius: 5px;
-  margin-left: 150px;
-  padding: 5px;
-  width: 265px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
 }
 
-.campo-empleado-n {
-  border-radius: 5px;
-  margin-left: 194px;
-  padding: 5px;
-  width: 265px;
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #84b6f4;
 }
 
-.campo-empleado-a {
-  border-radius: 5px;
-  margin-left: 192px;
-  padding: 5px;
-  width: 265px;
-}
-
-.campo-empleado-e {
-  border-radius: 5px;
-  margin-left: 215px;
-  padding: 5px;
-  width: 265px;
-}
-
-.campo-empleado-c {
-  border-radius: 5px;
-  margin-left: 205px;
-  padding: 5px;
-  width: 265px;
-}
-
-.campo-empleado-r {
-  border-radius: 5px;
-  margin-left: 235px;
-  padding: 5px;
-  width: 265px;
-}
-
-.campo-empleado-ar {
-  border-radius: 5px;
-  margin-left: 220px;
-  padding: 5px;
-  width: 265px;
+.button-principal {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
