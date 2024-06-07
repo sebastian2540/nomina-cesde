@@ -37,9 +37,6 @@ function Nav() {
           <Link to={"/empleados"}>
             <button>Empleados</button>
           </Link>
-          <Link to={"/area"}>
-            <button>Área</button>
-          </Link>
         </>
       )}
       <Link to={"/liquidacion"}>

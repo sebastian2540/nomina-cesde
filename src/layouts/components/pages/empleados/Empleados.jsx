@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../nav/Nav";
 import { useForm } from "react-hook-form";
 import "./empleados.css";
@@ -7,38 +7,99 @@ import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LuUserCheck2 } from "react-icons/lu";
 import { TfiSave } from "react-icons/tfi";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { initFirestore } from "../../../../database/firebaseConfig";
+import ListaEmpleados from "./Editar";
 
 const Empleados = () => {
   const [showForm, setShowForm] = useState(false);
-  const { register, handleSubmit, reset } = useForm();
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [employees, setEmployees] = useState([]);
+  const { register, handleSubmit, reset, setValue } = useForm();
 
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        const employeesCollection = collection(initFirestore, "empleados");
+        const employeesSnapshot = await getDocs(employeesCollection);
+        const employeesData = employeesSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setEmployees(employeesData);
+      } catch (error) {
+        console.error("Error fetching employees: ", error);
+      }
+    };
+
+    fetchEmployees();
+  }, [showForm, showEditModal]);
   const handleCrearClick = () => {
     setShowForm(!showForm);
   };
 
-  const onSubmit = async (data) => {
-    const registro = {
-      username: data,
-    };
-    console.log("***Empleado: ", registro);
+  const handleEditClick = (employee) => {
+    setSelectedEmployee(employee);
+    setValue("identificacion", employee.identificacion);
+    setValue("nombre", employee.nombre);
+    setValue("apellido", employee.apellido);
+    setValue("correo_electronico", employee.correo_electronico);
+    setValue("ciudad", employee.ciudad);
+    setValue("rol", employee.rol);
+    setValue("area", employee.area);
 
-    try {
-      const registroRef = collection(initFirestore, "empleados");
-      await addDoc(registroRef, registro);
-      console.log("Document successfully written!");
-    } catch (error) {
-      console.error("Error adding document: ", error);
+    setShowForm(true);
+  };
+
+  const handlePrueba = () => {
+    setShowEditModal(true);
+  };
+
+  const handleDeleteClick = async (employee) => {
+    const employeeRef = doc(initFirestore, "empleados", employee.id);
+    await deleteDoc(employeeRef);
+    setEmployees(employees.filter((emp) => emp.id !== employee.id));
+  };
+
+  const onSubmit = async (data) => {
+    if (selectedEmployee) {
+      // Si hay un empleado seleccionado, actualiza el empleado existente
+      const employeeRef = doc(initFirestore, "empleados", selectedEmployee.id);
+      await updateDoc(employeeRef, data);
+      console.log("Empleado actualizado con éxito");
+    } else {
+      // Si no hay un empleado seleccionado, crea un nuevo empleado
+      const registro = {
+        ...data,
+      };
+
+      try {
+        const registroRef = collection(initFirestore, "empleados");
+        await addDoc(registroRef, registro);
+        console.log("Documento escrito con éxito");
+      } catch (error) {
+        console.error("Error al agregar el documento: ", error);
+      }
     }
 
     reset();
     setShowForm(false);
+    setShowEditModal(false);
+    setSelectedEmployee(null); // Limpia el empleado seleccionado después de enviar el formulario
   };
 
   const handleCancel = () => {
     reset();
     setShowForm(false);
+    setShowEditModal(false);
   };
 
   return (
@@ -49,17 +110,21 @@ const Empleados = () => {
           <button className="button-crear" onClick={handleCrearClick}>
             <MdOutlineCreateNewFolder size={"20px"} /> Crear
           </button>
-          <button className="button-editar">
+          <button className="button-editar" onClick={handlePrueba}>
+            {showEditModal && (
+              <ListaEmpleados
+                employees={employees}
+                handleEditClick={handleEditClick}
+                handleDeleteClick={handleDeleteClick}
+              />
+            )}
             <FiEdit size={"20px"} /> Editar
           </button>
-          <button className="button-eliminar">
-            <RiDeleteBin6Line size={"20px"} /> Eliminar
-          </button>
+
           <button className="button-activar">
             <LuUserCheck2 size={"20px"} /> Estado
           </button>
         </div>
-
         {showForm && (
           <div className="principal">
             <div className="modal-body">
