@@ -28,7 +28,7 @@ const Empleados = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const employeesCollection = collection(initFirestore, "empleados");
+        const employeesCollection = collection(initFirestore, "tbl_empleados");
         const employeesSnapshot = await getDocs(employeesCollection);
         const employeesData = employeesSnapshot.docs.map((doc) => ({
           id: doc.id,
@@ -48,13 +48,15 @@ const Empleados = () => {
 
   const handleEditClick = (employee) => {
     setSelectedEmployee(employee);
-    setValue("identificacion", employee.identificacion);
-    setValue("nombre", employee.nombre);
-    setValue("apellido", employee.apellido);
-    setValue("correo_electronico", employee.correo_electronico);
-    setValue("ciudad", employee.ciudad);
-    setValue("rol", employee.rol);
-    setValue("area", employee.area);
+    setValue("usuario", employee.usuario);
+    setValue("nombre_empleado", employee.nombre_empleado);
+    setValue("apellido_empleado", employee.apellido_empleado);
+    setValue("email_empleado", employee.email_empleado);
+    setValue("salario_empleado", employee.salario_empleado);
+    setValue("tipo_contrato", employee.tipo_contrato);
+    setValue("contrasena", employee.contrasena);
+    setValue("id_empleado", employee.id_empleado);
+    setValue("cargo_empleado", employee.cargo_empleado);
 
     setShowForm(true);
   };
@@ -64,7 +66,7 @@ const Empleados = () => {
   };
 
   const handleDeleteClick = async (employee) => {
-    const employeeRef = doc(initFirestore, "empleados", employee.id);
+    const employeeRef = doc(initFirestore, "tbl_empleados", employee.id);
     await deleteDoc(employeeRef);
     setEmployees(employees.filter((emp) => emp.id !== employee.id));
   };
@@ -72,7 +74,11 @@ const Empleados = () => {
   const onSubmit = async (data) => {
     if (selectedEmployee) {
       // Si hay un empleado seleccionado, actualiza el empleado existente
-      const employeeRef = doc(initFirestore, "empleados", selectedEmployee.id);
+      const employeeRef = doc(
+        initFirestore,
+        "tbl_empleados",
+        selectedEmployee.id
+      );
       await updateDoc(employeeRef, data);
       console.log("Empleado actualizado con éxito");
     } else {
@@ -82,7 +88,7 @@ const Empleados = () => {
       };
 
       try {
-        const registroRef = collection(initFirestore, "empleados");
+        const registroRef = collection(initFirestore, "tbl_empleados");
         await addDoc(registroRef, registro);
         console.log("Documento escrito con éxito");
       } catch (error) {
@@ -132,61 +138,85 @@ const Empleados = () => {
                 <div className="container">
                   <div className="row">
                     <div className="col-md-2">
-                      <label htmlFor="identificacion">Identificación</label>
+                      <label htmlFor="id_empleado">Id empleado</label>
                       <input
                         type="text"
-                        id="identificacion"
-                        {...register("identificacion", { required: true })}
+                        id="id_empleado"
+                        {...register("id_empleado", { required: true })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="nombre">Nombre</label>
+                      <label htmlFor="usuario">Usuario</label>
                       <input
                         type="text"
-                        id="nombre"
-                        {...register("nombre", { required: true })}
+                        id="usuario"
+                        {...register("usuario", { required: true })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="apellido">Apellido</label>
+                      <label htmlFor="nombre_empleado">Nombre</label>
                       <input
                         type="text"
-                        id="apellido"
-                        {...register("apellido", { required: true })}
+                        id="nombre_empleado"
+                        {...register("nombre_empleado", { required: true })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="correo_electronico">Email</label>
+                      <label htmlFor="apellido_empleado">Apellido</label>
+                      <input
+                        type="text"
+                        id="apellido_empleado"
+                        {...register("apellido_empleado", { required: true })}
+                      />
+                    </div>
+                    <div className="col-md-2">
+                      <label htmlFor="email_empleado">Email</label>
                       <input
                         type="email"
-                        id="correo_electronico"
-                        {...register("correo_electronico", {
+                        id="email_empleado"
+                        {...register("email_empleado", {
                           required: true,
                         })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="ciudad">Ciudad</label>
+                      <label htmlFor="salario_empleado">Salario empleado</label>
                       <input
                         type="text"
-                        id="ciudad"
-                        {...register("ciudad", { required: true })}
+                        id="salario_empleado"
+                        {...register("salario_empleado", { required: true })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="rol">Rol</label>
+                      <label htmlFor="tipo_contrato">Tipo de contrato</label>
                       <input
                         type="text"
-                        id="rol"
-                        {...register("rol", { required: true })}
+                        id="tipo_contrato"
+                        {...register("tipo_contrato", { required: true })}
                       />
                     </div>
                     <div className="col-md-2">
-                      <label htmlFor="area">Área</label>
+                      <label htmlFor="contrasena">Contraseña</label>
                       <input
                         type="text"
-                        id="area"
-                        {...register("area", { required: true })}
+                        id="contrasena"
+                        {...register("contrasena", { required: true })}
+                      />
+                    </div>
+                    <div className="col-md-2">
+                      <label htmlFor="id_empleado">Id empleado</label>
+                      <input
+                        type="text"
+                        id="id_empleado"
+                        {...register("id_empleado", { required: true })}
+                      />
+                    </div>
+                    <div className="col-md-2">
+                      <label htmlFor="cargo_empleado">Cargo empleado</label>
+                      <input
+                        type="text"
+                        id="cargo_empleado"
+                        {...register("cargo_empleado", { required: true })}
                       />
                     </div>
                   </div>

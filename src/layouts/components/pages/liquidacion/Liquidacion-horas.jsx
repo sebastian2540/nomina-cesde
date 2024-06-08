@@ -61,7 +61,7 @@ const HourlyLiquidationForm = ({ onSubmit }) => {
       </div>
       <div className="button-principal">
         <button className="button-uno">
-          <TfiSave size={"20px"} /> Guardar
+          <TfiSave size={"20px"} /> Liquidacion por horas
         </button>
         <button className="button-dos">
           <MdOutlineCancel size={"20px"} /> Cancelar

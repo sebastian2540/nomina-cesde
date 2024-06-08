@@ -8,16 +8,28 @@ const ListaEmpleados = ({ employees, handleEditClick, handleDeleteClick }) => {
       {employees.map((employee) => (
         <div key={employee.id} className="employee-card">
           <div className="employee-lista">
-            Identificación: {employee.identificacion}
+            Id empleado: {employee.id_empleado}
           </div>
-          <div className="employee-lista">Nombre: {employee.nombre}</div>
-          <div className="employee-lista">Apellido: {employee.apellido}</div>
+          <div className="employee-lista">Usuario: {employee.usuario}</div>
           <div className="employee-lista">
-            Email: {employee.correo_electronico}
+            Nombre: {employee.nombre_empleado}
           </div>
-          <div className="employee-lista">Ciudad: {employee.ciudad}</div>
-          <div className="employee-lista">Rol: {employee.rol}</div>
-          <div className="employee-lista">Área: {employee.area}</div>
+          <div className="employee-lista">
+            Apellido: {employee.apellido_empleado}
+          </div>
+          <div className="employee-lista">Email: {employee.email_empleado}</div>
+          <div className="employee-lista">
+            Salario empleado: {employee.salario_empleado}
+          </div>
+          <div className="employee-lista">
+            Tipo de contrato: {employee.tipo_contrato}
+          </div>
+          <div className="employee-lista">
+            Contraseña: {employee.contrasena}
+          </div>
+          <div className="employee-lista">
+            Cargo empleado: {employee.cargo_empleado}
+          </div>
           <button
             className="employee-boton"
             onClick={() => handleEditClick(employee)}

@@ -64,7 +64,8 @@
 }
 
 .button-uno {
-  width: 215px;
+  width: 220px;
+
   margin-right: 10px;
   border-radius: 16px;
   background-color: #9bd3ae;
@@ -80,6 +81,7 @@
 }
 
 .button-dos {
+  width: 227px;
   border-radius: 16px;
   background-color: #f47e8e;
 }
