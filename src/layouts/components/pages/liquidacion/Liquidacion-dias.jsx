@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import "../liquidacion/liquidacion.css";
+import "./liquidacion.css";
 import { TfiSave } from "react-icons/tfi";
 import { MdOutlineCancel } from "react-icons/md";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -9,18 +9,21 @@ import { initFirestore } from "../../../../database/firebaseConfig";
 import LiquidacionForm from "../comprobante/empleado/LiquidacionForm";
 import LiquidacionEmpleador from "../comprobante/empleador/LiquidacionEmpleador";
 
-const FullTimeLiquidationForm = ({ onSubmit }) => {
-  const { register, handleSubmit, watch, setValue } = useForm();
+const HourlyLiquidationForm = ({ onSubmit }) => {
+  const { register, handleSubmit, getValues } = useForm();
   const [showLiquidacion, setShowLiquidacion] = useState(false);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [liquidacionType, setLiquidacionType] = useState("");
+  const [formData, setFormData] = useState({});
+
   const handleLiquidacionClick = (type) => {
-    const employeeId = watch("empleado");
+    const employeeId = document.getElementById("empleado").value;
     if (employeeId) {
       const employee = employees.find((emp) => emp.id === employeeId);
       setSelectedEmployee(employee);
       setLiquidacionType(type);
+      setFormData(getValues()); // Obtener los valores del formulario actual
       setShowLiquidacion(true);
     } else {
       alert("Seleccione un empleado");
@@ -34,28 +37,24 @@ const FullTimeLiquidationForm = ({ onSubmit }) => {
           id: doc.id,
           ...doc.data(),
         }));
-        console.log("Empleados obtenidos de Firebase:", employeesData);
         setEmployees(employeesData);
       },
       (error) => {
         console.error("Error al obtener los empleados:", error);
       }
     );
-
     return () => unsubscribe();
   }, []);
-
   const handleBack = () => {
     setShowLiquidacion(false);
     setSelectedEmployee(null);
   };
-
   if (showLiquidacion) {
     if (liquidacionType === "empleado") {
       return (
         <LiquidacionForm
           employee={selectedEmployee}
-          formData={watch()}
+          formData={formData}
           onBack={handleBack}
         />
       );
@@ -63,12 +62,13 @@ const FullTimeLiquidationForm = ({ onSubmit }) => {
       return (
         <LiquidacionEmpleador
           employee={selectedEmployee}
-          formData={watch()}
+          formData={formData}
           onBack={handleBack}
         />
       );
     }
   }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="hourly-form">
       <div>
@@ -99,9 +99,8 @@ const FullTimeLiquidationForm = ({ onSubmit }) => {
         />
       </div>
       <div>
-        <label>Salario:</label>
+        <label htmlFor="salario">Salario:</label>
         <input
-          className="salario"
           type="number"
           id="salario"
           {...register("salario", { required: true })}
@@ -116,6 +115,14 @@ const FullTimeLiquidationForm = ({ onSubmit }) => {
           <option value="si">Sí</option>
           <option value="no">No</option>
         </select>
+      </div>
+      <div>
+        <label htmlFor="diasLaborados">Días Laborados en la Semana:</label>
+        <input
+          type="number"
+          id="diasLaborados"
+          {...register("diasLaborados", { required: true })}
+        />
       </div>
       <div className="button-principal">
         <button
@@ -137,4 +144,4 @@ const FullTimeLiquidationForm = ({ onSubmit }) => {
   );
 };
 
-export default FullTimeLiquidationForm;
+export default HourlyLiquidationForm;

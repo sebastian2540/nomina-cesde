@@ -30,18 +30,20 @@ const ListaEmpleados = ({ employees, handleEditClick, handleDeleteClick }) => {
           <div className="employee-lista">
             Cargo empleado: {employee.cargo_empleado}
           </div>
-          <button
-            className="employee-boton"
-            onClick={() => handleEditClick(employee)}
-          >
-            <FiEdit size={"20px"} /> Editar
-          </button>
-          <button
-            className="employee-eliminar"
-            onClick={() => handleDeleteClick(employee)}
-          >
-            <FiTrash2 size={"20px"} /> Eliminar
-          </button>
+          <div className="button-container">
+            <button
+              className="employee-boton"
+              onClick={() => handleEditClick(employee)}
+            >
+              <FiEdit size={"20px"} /> Editar
+            </button>
+            <button
+              className="employee-eliminar"
+              onClick={() => handleDeleteClick(employee)}
+            >
+              <FiTrash2 size={"20px"} /> Eliminar
+            </button>
+          </div>
         </div>
       ))}
     </div>
@@ -53,5 +55,4 @@ ListaEmpleados.propTypes = {
   handleEditClick: PropTypes.func.isRequired,
   handleDeleteClick: PropTypes.func.isRequired,
 };
-
 export default ListaEmpleados;

@@ -70,6 +70,7 @@
 }
 
 .button-uno {
+  width: 240px;
   background-color: #9bd3ae;
 }
 
@@ -83,6 +84,7 @@
 }
 
 .button-dos {
+  width: 240px;
   background-color: #f47e8e;
 }
 
@@ -108,8 +110,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 65%;
-  margin: 130px auto;
+  margin-top: 75px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -173,16 +174,17 @@ input[type="email"]:focus {
 }
 
 .employees-container {
-  width: 830px;
-  position: absolute;
+  position: absolute; /* Cambiado a relativo para que las tarjetas se posicionen correctamente */
   top: 152px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: wrap;
 }
 
 .employee-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
   background-color: #e5dde6;
   width: 368px;
   height: 300px;
@@ -200,15 +202,20 @@ input[type="email"]:focus {
 }
 
 .employee-boton {
-  width: 100px;
+  width: 117px;
   height: 40px;
   border-radius: 15px;
 }
 
 .employee-eliminar {
-  width: 108px;
+  width: 128px;
   height: 40px;
   border-radius: 15px;
   margin-left: 8px;
   background-color: #f47e8e;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }

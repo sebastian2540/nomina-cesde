@@ -60,17 +60,14 @@ const Empleados = () => {
 
     setShowForm(true);
   };
-
   const handlePrueba = () => {
-    setShowEditModal(true);
+    setShowEditModal(!showEditModal);
   };
-
   const handleDeleteClick = async (employee) => {
     const employeeRef = doc(initFirestore, "tbl_empleados", employee.id);
     await deleteDoc(employeeRef);
     setEmployees(employees.filter((emp) => emp.id !== employee.id));
   };
-
   const onSubmit = async (data) => {
     if (selectedEmployee) {
       // Si hay un empleado seleccionado, actualiza el empleado existente
@@ -142,7 +139,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="id_empleado"
-                        {...register("id_empleado", { required: true })}
+                        {...register("id_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -158,7 +157,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="nombre_empleado"
-                        {...register("nombre_empleado", { required: true })}
+                        {...register("nombre_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -166,7 +167,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="apellido_empleado"
-                        {...register("apellido_empleado", { required: true })}
+                        {...register("apellido_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -184,7 +187,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="salario_empleado"
-                        {...register("salario_empleado", { required: true })}
+                        {...register("salario_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -192,7 +197,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="tipo_contrato"
-                        {...register("tipo_contrato", { required: true })}
+                        {...register("tipo_contrato", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -200,7 +207,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="contrasena"
-                        {...register("contrasena", { required: true })}
+                        {...register("contrasena", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -208,7 +217,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="id_empleado"
-                        {...register("id_empleado", { required: true })}
+                        {...register("id_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                     <div className="col-md-2">
@@ -216,7 +227,9 @@ const Empleados = () => {
                       <input
                         type="text"
                         id="cargo_empleado"
-                        {...register("cargo_empleado", { required: true })}
+                        {...register("cargo_empleado", {
+                          required: true,
+                        })}
                       />
                     </div>
                   </div>

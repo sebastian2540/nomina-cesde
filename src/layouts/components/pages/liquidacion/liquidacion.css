@@ -6,16 +6,13 @@
   background-color: #9bd3ae;
   justify-content: space-evenly;
 }
-
 .button-liquidacion_tiempo_completo:hover {
   background-color: #68b26ace;
 }
-
 .button-liquidacion_tiempo_completo:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .button-liquidacion_por_horas {
   margin-right: 10px;
   border-radius: 16px;
@@ -23,16 +20,13 @@
   border: none;
   background-color: #84b6f4;
 }
-
 .button-liquidacion_por_horas:hover {
   background-color: #008cffce;
 }
-
 .button-liquidacion_por_horas:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .container-buttons {
   right: 200px;
   position: absolute;
@@ -42,7 +36,6 @@
   justify-content: end;
   margin-left: -250px;
 }
-
 .principal {
   display: flex;
   width: 75%;
@@ -54,38 +47,30 @@
   top: 130px;
   align-items: center;
 }
-
 .button-principal {
   position: absolute;
-
   bottom: 10px;
   display: flex;
   justify-content: space-evenly;
 }
-
 .button-uno {
-  width: 220px;
-
+  width: 270px;
   margin-right: 10px;
   border-radius: 16px;
   background-color: #9bd3ae;
 }
-
 .button-uno:hover {
   background-color: #68b26ace;
 }
-
 .button-uno:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .button-dos {
   width: 227px;
   border-radius: 16px;
   background-color: #f47e8e;
 }
-
 .button-dos:hover {
   background-color: #f44336ce;
 }
@@ -94,46 +79,38 @@
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .button-liquidacion_empleado {
   margin-right: 10px;
   border-radius: 16px;
   width: 300px;
   background-color: #ff9800;
 }
-
 .button-liquidacion_empleado:hover {
   background-color: #ff9900ce;
 }
-
 .button-liquidacion_empleado:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .button-liquidacion_empleador {
   margin-right: 10px;
   border-radius: 16px;
   width: 300px;
   background-color: #ff5722;
 }
-
 .button-liquidacion_empleador:hover {
   background-color: #ff5622ce;
 }
-
 .button-liquidacion_empleador:active {
   box-shadow: 0 5px black;
   transform: translateY(1px);
 }
-
 .hourly-form {
   margin: 20px;
   padding: 20px;
   border: 1px solid black;
   border-radius: 25px;
   background-color: #e5dde6;
-
   width: 800px;
   height: 550px;
   position: absolute;
@@ -141,18 +118,15 @@
   left: 30%;
   z-index: 1;
 }
-
 .hourly-form div {
   margin-bottom: 15px;
 }
-
 .hourly-form label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
   border-color: #008cff;
 }
-
 .hourly-form input,
 .hourly-form select {
   width: 100%;
@@ -161,4 +135,5 @@
   border: 1px solid black;
   border-radius: 5px;
   border-color: black;
+  color: black;
 }

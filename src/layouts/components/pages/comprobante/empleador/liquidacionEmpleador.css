@@ -1,0 +1,99 @@
+.liquidacion-empleador {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left: 37px;
+  padding: 64px;
+  margin-left: 254px;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+.company-info {
+  margin-left: 20px;
+}
+h2 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.datos-liquidacion {
+  margin-top: 20px;
+  text-align: left;
+}
+.datos-liquidacion h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.data-row p {
+  margin: 0;
+}
+.conceptos {
+  margin-top: 20px;
+  text-align: left;
+}
+.conceptos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.conceptos th,
+.conceptos td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+.firma {
+  margin-top: 20px;
+  text-align: left;
+}
+.firma p {
+  margin: 5px 0;
+}
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.signature {
+  text-align: center;
+}
+.signature p {
+  margin: 5px 0;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.buttons .cancel {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+.buttons .save {
+  background-color: #d4edda;
+  color: #155724;
+}
+.buttons button:hover {
+  opacity: 0.8;
+}
