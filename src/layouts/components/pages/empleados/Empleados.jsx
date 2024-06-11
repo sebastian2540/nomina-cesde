@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import "./empleados.css";
 import { MdOutlineCreateNewFolder, MdOutlineCancel } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-import { RiDeleteBin6Line } from "react-icons/ri";
+
+import Swal from "sweetalert2";
 import { LuUserCheck2 } from "react-icons/lu";
 import { TfiSave } from "react-icons/tfi";
 import {
@@ -47,27 +48,63 @@ const Empleados = () => {
   };
 
   const handleEditClick = (employee) => {
-    setSelectedEmployee(employee);
-    setValue("usuario", employee.usuario);
-    setValue("nombre_empleado", employee.nombre_empleado);
-    setValue("apellido_empleado", employee.apellido_empleado);
-    setValue("email_empleado", employee.email_empleado);
-    setValue("salario_empleado", employee.salario_empleado);
-    setValue("tipo_contrato", employee.tipo_contrato);
-    setValue("contrasena", employee.contrasena);
-    setValue("id_empleado", employee.id_empleado);
-    setValue("cargo_empleado", employee.cargo_empleado);
+    // Mostrar una alerta de confirmación antes de editar
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "¿Quieres editar este empleado?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, editar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setSelectedEmployee(employee);
+        setValue("usuario", employee.usuario);
+        setValue("nombre_empleado", employee.nombre_empleado);
+        setValue("apellido_empleado", employee.apellido_empleado);
+        setValue("email_empleado", employee.email_empleado);
+        setValue("salario_empleado", employee.salario_empleado);
+        setValue("tipo_contrato", employee.tipo_contrato);
+        setValue("contrasena", employee.contrasena);
+        setValue("id_empleado", employee.id_empleado);
+        setValue("cargo_empleado", employee.cargo_empleado);
 
-    setShowForm(true);
+        setShowForm(true);
+      }
+    });
   };
   const handlePrueba = () => {
     setShowEditModal(!showEditModal);
   };
   const handleDeleteClick = async (employee) => {
-    const employeeRef = doc(initFirestore, "tbl_empleados", employee.id);
-    await deleteDoc(employeeRef);
-    setEmployees(employees.filter((emp) => emp.id !== employee.id));
+    // Mostrar una alerta de confirmación antes de eliminar
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Una vez eliminado, no podrás recuperar este empleado.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // Si el usuario confirma la eliminación, eliminar el empleado
+        const employeeRef = doc(initFirestore, "tbl_empleados", employee.id);
+        await deleteDoc(employeeRef);
+        setEmployees(employees.filter((emp) => emp.id !== employee.id));
+        // Mostrar una alerta de éxito
+        Swal.fire(
+          "¡Eliminado!",
+          "El empleado ha sido eliminado correctamente.",
+          "success"
+        );
+      }
+    });
   };
+
   const onSubmit = async (data) => {
     if (selectedEmployee) {
       // Si hay un empleado seleccionado, actualiza el empleado existente
@@ -88,6 +125,11 @@ const Empleados = () => {
         const registroRef = collection(initFirestore, "tbl_empleados");
         await addDoc(registroRef, registro);
         console.log("Documento escrito con éxito");
+        Swal.fire({
+          icon: "success",
+          title: "¡Guardado!",
+          text: "El formulario se ha guardado correctamente.",
+        });
       } catch (error) {
         console.error("Error al agregar el documento: ", error);
       }

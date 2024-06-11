@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { initFirestore } from "../../../database/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useUserContext } from "../context/UserContext";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -42,7 +43,11 @@ const Login = () => {
         redireccion("/home");
       }, 2000);
     } else {
-      console.log("Credenciales incorrectas");
+      Swal.fire({
+        icon: "error",
+        title: "Credenciales incorrectas",
+        text: "Por favor, verifica tu usuario y contraseña",
+      });
     }
   };
 
